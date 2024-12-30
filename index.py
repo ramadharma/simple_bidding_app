@@ -31,11 +31,19 @@ while play:
     else:
         play = False
 
-# Determine the winner
+# Determine the winner without using .items()
 if bid_memory:  # Check if there are any bids
-    winner = max(bid_memory, key=bid_memory.get)  # Get the name of the highest bidder
-    winning_bid = bid_memory[winner]  # Get the winning bid amount
+    winner = None
+    winning_bid = 0
+    
+    for bidder in bid_memory:  # Iterate over keys (names)
+        amount = bid_memory[bidder]  # Access the bid using the key
+        if amount > winning_bid:
+            winning_bid = amount
+            winner = bidder
+
     print(f"The winner is {winner} with a bid of ${winning_bid}.")
 else:
     print("No bids were placed.")
+
 
