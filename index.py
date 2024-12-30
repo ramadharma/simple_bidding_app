@@ -31,7 +31,6 @@ while play:
     else:
         play = False
 
-# Determine the winner without using .items()
 if bid_memory:  # Check if there are any bids
     winner = None
     winning_bid = 0
